@@ -1,0 +1,15 @@
+textarea {
+  resize: none;
+}
+
+.row {
+  margin: 2px;
+}
+
+.time {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  text-align: center;
+}
