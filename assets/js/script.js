@@ -1,3 +1,14 @@
+$("#currentTime").text(dayjs().format("MMMM DD, YYYY"))
+
+// Change the Jumbotron/Hero Image depending on the time of day it is
+if (dayjs().format("HH") >= "05" && dayjs().format("HH") < "10") {
+  // morning time
+} else if (dayjs().format("HH") >= "10" && dayjs().format("HH") < "18") {
+  // day time
+} else {
+  // night time
+}
+
 
 let saveBtn = function(event) {
   event.preventDefault()
