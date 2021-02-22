@@ -3,10 +3,13 @@ $("#currentTime").text(dayjs().format("MMMM DD, YYYY"))
 // Change the Jumbotron/Hero Image depending on the time of day it is
 if (dayjs().format("HH") >= "05" && dayjs().format("HH") < "10") {
   // morning time
+  $(".jumbotron").removeClass("day evening").addClass("morning")
 } else if (dayjs().format("HH") >= "10" && dayjs().format("HH") < "18") {
   // day time
+  $(".jumbotron").removeClass("morning evening").addClass("day")
 } else {
   // night time
+  $(".jumbotron").removeClass("morning day").addClass("evening")
 }
 
 
