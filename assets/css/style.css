@@ -1,3 +1,13 @@
+.morning {
+  background-image: url("./../images/morning.jpg");
+  background-size: cover;
+}
+
+.day {
+  background-image: url("./../images/day.jpg");
+  background-size: cover;
+}
+
 .evening {
   background-image: url("./../images/evening.jpeg");
   background-size: cover;
