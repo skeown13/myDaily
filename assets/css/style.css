@@ -49,8 +49,13 @@ textarea {
   align-content: center;
   flex-direction: column;
   text-align: center;
+  border: 1px;
+  border-style: solid;
+  border-radius: 10px;
+  background-color: aqua;
 }
 
 .saveBtn {
   background-color: aqua;
+  border-radius: 10px;
 }
