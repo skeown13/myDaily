@@ -41,3 +41,16 @@ let loadPage = function () {
 $(document).ready(loadPage)
 
 $(".saveBtn").click(saveBtn)
+
+let linedBtn = function(event) {
+  event.preventDefault()
+  $("body").removeClass("kindergarten").addClass("lined")
+}
+
+let kindergartenBtn = function(event) {
+  event.preventDefault()
+  $("body").removeClass("lined").addClass("kindergarten")
+}
+
+$("#lined").click(linedBtn)
+$("#kindergarten").click(kindergartenBtn)
