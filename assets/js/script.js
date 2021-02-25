@@ -54,3 +54,19 @@ let kindergartenBtn = function(event) {
 
 $("#lined").click(linedBtn)
 $("#kindergarten").click(kindergartenBtn)
+
+function hourUpdater() {
+  $(".todo").each(function() {
+    var hour = parseInt($(this).attr("id").slice(4, 6))
+    
+    if (dayjs().hour() > hour) {
+      ($(this).addClass("past"))
+    } else if (dayjs().hour() === hour) {
+      ($(this).removeClass("past").addClass("present"))
+    } else {
+      ($(this).removeClass("past present").addClass("future"))
+    }
+  })
+}
+
+hourUpdater()
