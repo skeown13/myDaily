@@ -25,6 +25,16 @@
   text-shadow: 1px 1px 0 yellow;
 }
 
+.lined {
+  background-image: url("./../images/paperTypes/lined.png");
+  background-size: cover;
+}
+
+.kindergarten {
+  background-image: url("./../images/paperTypes/kinderten.jpg");
+  background-size: cover;
+}
+
 textarea {
   resize: none;
 }
