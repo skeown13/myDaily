@@ -1,17 +1,34 @@
 $("#currentTime").text(dayjs().format("MMMM DD, YYYY"))
 
-// Change the Jumbotron/Hero Image depending on the time of day it is
-if (dayjs().format("HH") >= "05" && dayjs().format("HH") < "10") {
-  // morning time
-  $(".jumbotron").removeClass("day evening").addClass("morning")
-} else if (dayjs().format("HH") >= "10" && dayjs().format("HH") < "18") {
-  // day time
-  $(".jumbotron").removeClass("morning evening").addClass("day")
-} else {
-  // night time
-  $(".jumbotron").removeClass("morning day").addClass("evening")
+function hourUpdater() {
+  let currentTime = dayjs().hour()
+  
+  // Change the Jumbotron/Hero Image depending on the time of day it is
+  if (currentTime >= "05" && currentTime < "10") {
+    // morning time
+    $(".jumbotron").removeClass("day evening").addClass("morning")
+  } else if (currentTime >= "10" && currentTime < "18") {
+    // day time
+    $(".jumbotron").removeClass("morning evening").addClass("day")
+  } else {
+    // night time
+    $(".jumbotron").removeClass("morning day").addClass("evening")
+  }
+
+  $(".todo").each(function() {
+    let hour = parseInt($(this).attr("id").slice(4, 6))
+    
+    if (currentTime > hour) {
+      ($(this).addClass("past"))
+    } else if (currentTime === hour) {
+      ($(this).removeClass("past").addClass("present"))
+    } else {
+      ($(this).removeClass("past present").addClass("future"))
+    }
+  })
 }
 
+hourUpdater()
 
 let saveBtn = function(event) {
   event.preventDefault()
@@ -54,19 +71,3 @@ let kindergartenBtn = function(event) {
 
 $("#lined").click(linedBtn)
 $("#kindergarten").click(kindergartenBtn)
-
-function hourUpdater() {
-  $(".todo").each(function() {
-    var hour = parseInt($(this).attr("id").slice(4, 6))
-    
-    if (dayjs().hour() > hour) {
-      ($(this).addClass("past"))
-    } else if (dayjs().hour() === hour) {
-      ($(this).removeClass("past").addClass("present"))
-    } else {
-      ($(this).removeClass("past present").addClass("future"))
-    }
-  })
-}
-
-hourUpdater()
