@@ -61,7 +61,7 @@ textarea {
 }
 
 .past {
-  background-color: red;
+  background-color: #f87575;
 }
 
 .present {
@@ -69,5 +69,5 @@ textarea {
 }
 
 .future {
-  background-color: green;
+  background-color: #86ee86;
 }
