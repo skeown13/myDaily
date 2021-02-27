@@ -2,28 +2,28 @@ $("#currentTime").text(dayjs().format("MMMM DD, YYYY"))
 
 function hourUpdater() {
   let currentTime = dayjs().hour()
-  
+
   // Change the Jumbotron/Hero Image depending on the time of day it is
   if (currentTime >= "05" && currentTime < "10") {
     // morning time
-    $(".jumbotron").removeClass("day evening").addClass("morning")
+    $(".jumbotron").toggleClass("day evening", false).toggleClass("morning", true)
   } else if (currentTime >= "10" && currentTime < "18") {
     // day time
-    $(".jumbotron").removeClass("morning evening").addClass("day")
+    $(".jumbotron").toggleClass("morning evening", false).toggleClass("day", true)
   } else {
     // night time
-    $(".jumbotron").removeClass("morning day").addClass("evening")
+    $(".jumbotron").toggleClass("morning day", false).toggleClass("evening", true)
   }
 
   $(".todo").each(function() {
     let hour = parseInt($(this).attr("id").slice(4, 6))
     
     if (currentTime > hour) {
-      ($(this).addClass("past"))
+      ($(this).toggleClass("present future", false).toggleClass("past", true))
     } else if (currentTime === hour) {
-      ($(this).removeClass("past").addClass("present"))
+      ($(this).toggleClass("past future", false).toggleClass("present", true))
     } else {
-      ($(this).removeClass("past present").addClass("future"))
+      ($(this).toggleClass("past present", false).toggleClass("future", true))
     }
   })
 }
