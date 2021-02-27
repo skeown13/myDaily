@@ -28,6 +28,8 @@ function hourUpdater() {
   })
 }
 
+let interval = setInterval(hourUpdater, 15000)
+
 hourUpdater()
 
 let saveBtn = function(event) {
