@@ -7,12 +7,18 @@ function hourUpdater() {
   if (currentTime >= "05" && currentTime < "10") {
     // morning time
     $(".jumbotron").toggleClass("day evening", false).toggleClass("morning", true)
+    $(".time").toggleClass("timeDay timeEvening", false).toggleClass("timeMorning", true)
+    $(".saveBtn").toggleClass("saveBtnDay saveBtnEvening", false).toggleClass("saveBtnMorning", true)
   } else if (currentTime >= "10" && currentTime < "18") {
     // day time
     $(".jumbotron").toggleClass("morning evening", false).toggleClass("day", true)
+    $(".time").toggleClass("timeMorning timeEvening", false).toggleClass("timeDay", true)
+    $(".saveBtn").toggleClass("saveBtnMorning saveBtnEvening", false).toggleClass("saveBtnDay", true)
   } else {
     // night time
     $(".jumbotron").toggleClass("morning day", false).toggleClass("evening", true)
+    $(".time").toggleClass("timeMorning timeDay", false).toggleClass("timeEvening", true)
+    $(".saveBtn").toggleClass("saveBtnMorning saveBtnDay", false).toggleClass("saveBtnEvening", true)
   }
 
   $(".todo").each(function() {
