@@ -16,12 +16,14 @@
 #myDaily {
   text-align: center;
   font-family: "Cinzel Decorative", cursive;
+  font-size: 72px;
   text-shadow: 3px 3px 0 yellow;
 }
 
 #currentTime {
   text-align: center;
   font-family: "Cinzel Decorative", cursive;
+  font-size: 24px;
   text-shadow: 1px 1px 0 yellow;
 }
 
