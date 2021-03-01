@@ -52,12 +52,30 @@ textarea {
   border: 1px;
   border-style: solid;
   border-radius: 10px;
-  background-color: aqua;
+}
+
+.timeMorning {
+  background-color: #3186b3;
+}
+
+.timeDay {
+}
+
+.timeEvening {
 }
 
 .saveBtn {
-  background-color: aqua;
   border-radius: 10px;
+}
+
+.saveBtnMorning {
+  background-color: #73c2e0;
+}
+
+.saveBtnDay {
+}
+
+.saveBtnEvening {
 }
 
 .past {
