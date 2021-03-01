@@ -55,13 +55,15 @@ textarea {
 }
 
 .timeMorning {
-  background-color: #3186b3;
+  background-color: #f6b613;
 }
 
 .timeDay {
+  background-color: #3186b3;
 }
 
 .timeEvening {
+  background-color: #e59447;
 }
 
 .saveBtn {
@@ -69,13 +71,15 @@ textarea {
 }
 
 .saveBtnMorning {
-  background-color: #73c2e0;
+  background-color: #8eaff4;
 }
 
 .saveBtnDay {
+  background-color: #73c2e0;
 }
 
 .saveBtnEvening {
+  background-color: #da7923;
 }
 
 .past {
