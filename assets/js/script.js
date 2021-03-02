@@ -1,7 +1,17 @@
-$("#currentTime").text(dayjs().format("MMMM DD, YYYY"))
+let currentDay = dayjs().format("MMMM DD, YYYY")
+
+$("#currentTime").text(currentDay)
 
 function hourUpdater() {
   let currentTime = dayjs().hour()
+  
+  // Technically makes it so that nothing can be saved to local storage during the midnight hour, but most people are asleep at that time and it can be worked on later
+  if (currentTime === 00) {
+    $(".time").each(function() {
+      let key = $(this).text()
+      localStorage.removeItem(key)
+    })
+  }
 
   // Change the Jumbotron/Hero Image depending on the time of day it is
   if (currentTime >= "05" && currentTime < "10") {
