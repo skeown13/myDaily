@@ -37,6 +37,11 @@
   background-size: cover;
 }
 
+.graph {
+  background-image: url("./../images/paperTypes/graph.jpg");
+  background-size: cover;
+}
+
 textarea {
   resize: none;
 }
