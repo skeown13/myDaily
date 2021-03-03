@@ -4,7 +4,7 @@ $("#currentTime").text(currentDay)
 
 function hourUpdater() {
   let currentTime = dayjs().hour()
-  
+
   // Technically makes it so that nothing can be saved to local storage during the midnight hour, but most people are asleep at that time and it can be worked on later
   if (currentTime === 00) {
     $(".time").each(function() {
@@ -79,13 +79,19 @@ $(".saveBtn").click(saveBtn)
 
 let linedBtn = function(event) {
   event.preventDefault()
-  $("body").removeClass("kindergarten").addClass("lined")
+  $("body").removeClass("kindergarten graph").addClass("lined")
 }
 
 let kindergartenBtn = function(event) {
   event.preventDefault()
-  $("body").removeClass("lined").addClass("kindergarten")
+  $("body").removeClass("lined graph").addClass("kindergarten")
+}
+
+let graphBtn = function(event) {
+  event.preventDefault()
+  $("body").removeClass("lined kindergarten").addClass("graph")
 }
 
 $("#lined").click(linedBtn)
 $("#kindergarten").click(kindergartenBtn)
+$("#graph").click(graphBtn)
