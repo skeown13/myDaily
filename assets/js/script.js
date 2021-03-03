@@ -56,6 +56,14 @@ let saveBtn = function(event) {
 }
 
 let loadPage = function () {
+  if (localStorage.getItem("lined") === "true") {
+    $("body").removeClass("kindergarten graph").addClass("lined")
+  } else if (localStorage.getItem("kindergarten") === "true") {
+    $("body").removeClass("lined graph").addClass("kindergarten")
+  } else {
+    $("body").removeClass("lined kindergarten").addClass("graph")
+  }
+  
   $("#hour0700").val(localStorage.getItem("0700"))
   $("#hour0800").val(localStorage.getItem("0800"))
   $("#hour0900").val(localStorage.getItem("0900"))
@@ -80,25 +88,25 @@ $(".saveBtn").click(saveBtn)
 let linedBtn = function(event) {
   event.preventDefault()
   $("body").removeClass("kindergarten graph").addClass("lined")
-  // localStorage.removeItem("kindergarten")
-  // localStorage.removeItem("graph")
-  // localStorage.setItem("lined", true)
+  localStorage.removeItem("kindergarten")
+  localStorage.removeItem("graph")
+  localStorage.setItem("lined", true)
 }
 
 let kindergartenBtn = function(event) {
   event.preventDefault()
   $("body").removeClass("lined graph").addClass("kindergarten")
-  // localStorage.removeItem("lined")
-  // localStorage.removeItem("graph")
-  // localStorage.setItem("kindergarten", true)
+  localStorage.removeItem("lined")
+  localStorage.removeItem("graph")
+  localStorage.setItem("kindergarten", true)
 }
 
 let graphBtn = function(event) {
   event.preventDefault()
   $("body").removeClass("lined kindergarten").addClass("graph")
-  // localStorage.removeItem("lined")
-  // localStorage.removeItem("kindergarten")
-  // localStorage.setItem("graph", true)
+  localStorage.removeItem("lined")
+  localStorage.removeItem("kindergarten")
+  localStorage.setItem("graph", true)
 }
 
 $("#lined").click(linedBtn)
