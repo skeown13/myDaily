@@ -6,7 +6,7 @@ function hourUpdater() {
   let currentTime = dayjs().hour()
 
   // Technically makes it so that nothing can be saved to local storage during the midnight hour, but most people are asleep at that time and it can be worked on later
-  if (currentTime === 00) {
+  if (dayjs().startOf('day')) {
     $(".time").each(function() {
       let key = $(this).text()
       localStorage.removeItem(key)
