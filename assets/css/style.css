@@ -27,6 +27,10 @@
   text-shadow: 1px 1px 0 yellow;
 }
 
+.allPaperTypeBtns {
+  margin-bottom: 10px;
+}
+
 .lined {
   background-image: url("./../images/paperTypes/lined.png");
   background-size: cover;
