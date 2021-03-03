@@ -5,8 +5,8 @@ $("#currentTime").text(currentDay)
 function hourUpdater() {
   let currentTime = dayjs().hour()
 
-  // Technically makes it so that nothing can be saved to local storage during the midnight hour, but most people are asleep at that time and it can be worked on later
-  if (dayjs().startOf('day')) {
+  // if the start of the day matches that it is the start of the day then clear the local storage as relates to the text inputs
+  if (dayjs().startOf('day').$d === dayjs().$d) {
     $(".time").each(function() {
       let key = $(this).text()
       localStorage.removeItem(key)
@@ -80,16 +80,25 @@ $(".saveBtn").click(saveBtn)
 let linedBtn = function(event) {
   event.preventDefault()
   $("body").removeClass("kindergarten graph").addClass("lined")
+  // localStorage.removeItem("kindergarten")
+  // localStorage.removeItem("graph")
+  // localStorage.setItem("lined", true)
 }
 
 let kindergartenBtn = function(event) {
   event.preventDefault()
   $("body").removeClass("lined graph").addClass("kindergarten")
+  // localStorage.removeItem("lined")
+  // localStorage.removeItem("graph")
+  // localStorage.setItem("kindergarten", true)
 }
 
 let graphBtn = function(event) {
   event.preventDefault()
   $("body").removeClass("lined kindergarten").addClass("graph")
+  // localStorage.removeItem("lined")
+  // localStorage.removeItem("kindergarten")
+  // localStorage.setItem("graph", true)
 }
 
 $("#lined").click(linedBtn)
