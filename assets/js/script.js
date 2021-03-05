@@ -1,14 +1,18 @@
+let currentDay = dayjs().format("MMMM DD, YYYY")
+let dateHolder = currentDay
+
 function hourUpdater() {
   let currentTime = dayjs().hour()
-  
-  $("#currentTime").text(dayjs().format("MMMM DD, YYYY"))
+  let updatedCurrentDay = currentDay
+  $("#currentTime").text(updatedCurrentDay)
 
   // if the start of the day matches that it is the start of the day then clear the local storage as relates to the text inputs
-  if (dayjs().startOf('day').$d === dayjs().$d) {
+  if (updatedCurrentDay > dateHolder) {
     $(".time").each(function() {
       let key = $(this).text()
       localStorage.removeItem(key)
     })
+    dateHolder = updatedCurrentDay
   }
 
   // Change the Jumbotron/Hero Image depending on the time of day it is
