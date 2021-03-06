@@ -1,10 +1,10 @@
-let currentDay = dayjs().format("MMMM DD, YYYY")
-let dateHolder = currentDay
+let dateHolder = dayjs().$D
 
 function hourUpdater() {
+  let currentDay = dayjs().format("MMMM DD, YYYY")
+  let updatedCurrentDay = dayjs().$D
   let currentTime = dayjs().hour()
-  let updatedCurrentDay = currentDay
-  $("#currentTime").text(updatedCurrentDay)
+  $("#currentTime").text(currentDay)
 
   // if the start of the day matches that it is the start of the day then clear the local storage as relates to the text inputs
   if (updatedCurrentDay > dateHolder) {
