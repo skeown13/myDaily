@@ -11,6 +11,7 @@ function hourUpdater() {
     $(".time").each(function() {
       let key = $(this).text()
       localStorage.removeItem(key)
+      loadPage()
     })
     dateHolder = updatedCurrentDay
   }
