@@ -1,12 +1,14 @@
+// Holds the current date and stays that date when a new day begins only to be again updated to current date after the first if statement in hourUpdater() runs
 let dateHolder = dayjs().$D
 
+// Checks the time and does each of the functionality stated in the within comments
 function hourUpdater() {
   let currentDay = dayjs().format("MMMM DD, YYYY")
   let updatedCurrentDay = dayjs().$D
   let currentTime = dayjs().hour()
   $("#currentTime").text(currentDay)
 
-  // if the start of the day matches that it is the start of the day then clear the local storage as relates to the text inputs
+  // At the beginning of a new day clear the local storage as relates to the text inputs
   if (updatedCurrentDay > dateHolder) {
     $(".time").each(function() {
       let key = $(this).text()
@@ -34,6 +36,7 @@ function hourUpdater() {
     $(".saveBtn").toggleClass("saveBtnMorning saveBtnDay", false).toggleClass("saveBtnEvening", true)
   }
 
+  // Change the color of the hour depending if the time is past, present, or future.
   $(".todo").each(function() {
     let hour = parseInt($(this).attr("id").slice(4, 6))
     
@@ -47,10 +50,12 @@ function hourUpdater() {
   })
 }
 
+// Call hourUpdater every 15 seconds
 let interval = setInterval(hourUpdater, 15000)
 
 hourUpdater()
 
+// Functionality for each of the buttons present
 let saveBtn = function(event) {
   event.preventDefault()
   let key = $(this).siblings(".time").text()
@@ -58,6 +63,37 @@ let saveBtn = function(event) {
   localStorage.setItem(key, value)
 }
 
+let linedBtn = function(event) {
+  event.preventDefault()
+  $("body").removeClass("kindergarten graph").addClass("lined")
+  localStorage.removeItem("kindergarten")
+  localStorage.removeItem("graph")
+  localStorage.setItem("lined", true)
+}
+
+let kindergartenBtn = function(event) {
+  event.preventDefault()
+  $("body").removeClass("lined graph").addClass("kindergarten")
+  localStorage.removeItem("lined")
+  localStorage.removeItem("graph")
+  localStorage.setItem("kindergarten", true)
+}
+
+let graphBtn = function(event) {
+  event.preventDefault()
+  $("body").removeClass("lined kindergarten").addClass("graph")
+  localStorage.removeItem("lined")
+  localStorage.removeItem("kindergarten")
+  localStorage.setItem("graph", true)
+}
+
+// Call each of the buttons present
+$(".saveBtn").click(saveBtn)
+$("#lined").click(linedBtn)
+$("#kindergarten").click(kindergartenBtn)
+$("#graph").click(graphBtn)
+
+// loadPage function that grabs items from localStorage and populates the page upon page refresh
 let loadPage = function () {
   if (localStorage.getItem("lined") === "true") {
     $("body").removeClass("kindergarten graph").addClass("lined")
@@ -85,33 +121,3 @@ let loadPage = function () {
 }
 
 $(document).ready(loadPage)
-
-$(".saveBtn").click(saveBtn)
-
-let linedBtn = function(event) {
-  event.preventDefault()
-  $("body").removeClass("kindergarten graph").addClass("lined")
-  localStorage.removeItem("kindergarten")
-  localStorage.removeItem("graph")
-  localStorage.setItem("lined", true)
-}
-
-let kindergartenBtn = function(event) {
-  event.preventDefault()
-  $("body").removeClass("lined graph").addClass("kindergarten")
-  localStorage.removeItem("lined")
-  localStorage.removeItem("graph")
-  localStorage.setItem("kindergarten", true)
-}
-
-let graphBtn = function(event) {
-  event.preventDefault()
-  $("body").removeClass("lined kindergarten").addClass("graph")
-  localStorage.removeItem("lined")
-  localStorage.removeItem("kindergarten")
-  localStorage.setItem("graph", true)
-}
-
-$("#lined").click(linedBtn)
-$("#kindergarten").click(kindergartenBtn)
-$("#graph").click(graphBtn)
