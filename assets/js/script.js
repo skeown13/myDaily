@@ -1,5 +1,6 @@
 // Holds the current date and stays that date when a new day begins only to be again updated to current date after the first if statement in hourUpdater() runs
 let dateHolder = dayjs().$D
+let monthHolder = dayjs().$M
 
 // Checks the time and does each of the functionality stated in the within comments
 function hourUpdater() {
