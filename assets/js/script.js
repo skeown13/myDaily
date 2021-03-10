@@ -6,17 +6,22 @@ let monthHolder = dayjs().$M
 function hourUpdater() {
   let currentDay = dayjs().format("MMMM DD, YYYY")
   let updatedCurrentDay = dayjs().$D
+  let updatedCurrentMonth = dayjs().$M
   let currentTime = dayjs().hour()
   $("#currentTime").text(currentDay)
 
   // At the beginning of a new day clear the local storage as relates to the text inputs
-  if (updatedCurrentDay > dateHolder) {
+  if (updatedCurrentDay > dateHolder || updatedCurrentMonth > monthHolder) {
     $(".time").each(function() {
       let key = $(this).text()
       localStorage.removeItem(key)
       loadPage()
     })
     dateHolder = updatedCurrentDay
+  }
+
+  if (updatedCurrentMonth > monthHolder) {
+    monthHolder = updatedCurrentMonth
   }
 
   // Change the Jumbotron/Hero Image depending on the time of day it is
