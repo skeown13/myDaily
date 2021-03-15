@@ -1,3 +1,4 @@
+/* Background Images for the Hero Section depending on the time of day */
 .morning {
   background-image: url("./../images/morning.jpg");
   background-size: cover;
@@ -13,6 +14,7 @@
   background-size: cover;
 }
 
+/* Text in the Hero Section */
 #myDaily {
   text-align: center;
   font-family: "Cinzel Decorative", cursive;
@@ -27,6 +29,7 @@
   text-shadow: 1px 1px 0 yellow;
 }
 
+/* Buttons that change the Background Paper Type */
 .allPaperTypeBtns {
   margin-bottom: 10px;
 }
@@ -46,6 +49,7 @@
   background-size: cover;
 }
 
+/* Styling for each row corresponding to the hour of the day */
 textarea {
   resize: none;
 }
